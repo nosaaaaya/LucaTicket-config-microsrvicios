@@ -1,0 +1,18 @@
+server:
+  port: 6666
+spring:
+  cloud: 
+   gateway: 
+    routes:
+      - id: eventos
+        uri: lb://eventos/
+        predicates:
+          - Path=/eventos/**
+      - id: usuarios
+        uri: lb://usuarios/
+        predicates:
+          - Path=/usuarios/**
+      - id: compras
+        uri: lb://compras/
+        predicates:
+          - Path=/compras/**          
